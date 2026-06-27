@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leben im Fasanenpark</title>
+    <meta name="description" content="Flohmarkt im Fasanenpark, Unterhaching. 08.08.2026, 09–13 Uhr. Standanmeldung und Infos.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            DEFAULT: '#2a9d8f',
+                            dark: '#21867a',
+                            light: '#e6f5f3',
+                        },
+                        coral: {
+                            DEFAULT: '#e76f51',
+                            dark: '#d4573a',
+                            light: '#fdf0ed',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+    <!-- Hero -->
+    <header class="relative">
+        <div class="w-full h-[60vh] min-h-[400px] overflow-hidden">
+            <img src="park_optimized.jpeg" alt="Fasanenpark in Unterhaching"
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+            <div class="w-full px-6 pb-10 md:pb-14">
+                <h1 class="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
+                    Leben im Fasanenpark
+                </h1>
+                <p class="mt-2 text-lg md:text-xl text-white/90 drop-shadow">
+                    Gemeinsam. Nachbarschaftlich. Lebendig.
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Event Details -->
+    <main>
+        <section class="max-w-3xl mx-auto px-6 py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal mb-8">Flohmarkt im Fasanenpark</h2>
+
+            <div class="bg-teal-light rounded-2xl p-6 md:p-8 space-y-4">
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">&#128197;</span>
+                    <div>
+                        <p class="font-semibold text-lg">Samstag, 08. August 2026</p>
+                        <p class="text-gray-600">09:00 &ndash; 13:00 Uhr</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">&#128205;</span>
+                    <div>
+                        <p class="font-semibold text-lg">Im Parallelweg vom Falkenweg</p>
+                        <p class="text-gray-600">Unterhaching</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">&#128176;</span>
+                    <div>
+                        <p class="font-semibold text-lg">10 &euro; pro 2-Meter-Stand</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                    <span class="text-2xl">&#9748;</span>
+                    <div>
+                        <p class="font-semibold text-lg text-coral">Bei Regen entf&auml;llt der Flohmarkt.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Standanmeldung -->
+        <section class="bg-coral-light">
+            <div class="max-w-3xl mx-auto px-6 py-12 md:py-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-coral mb-4">Standanmeldung</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Du m&ouml;chtest einen Stand? Schreib uns einfach eine E-Mail:
+                </p>
+                <a href="mailto:caroline.helming@gmail.com?subject=Standanmeldung%20Flohmarkt%20Fasanenpark"
+                   class="inline-block bg-coral hover:bg-coral-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-lg">
+                    Stand anmelden
+                </a>
+            </div>
+        </section>
+
+        <!-- Map -->
+        <section class="max-w-3xl mx-auto px-6 py-12 md:py-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal mb-6">Anfahrt</h2>
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+                <iframe
+                    width="100%"
+                    height="350"
+                    frameborder="0"
+                    scrolling="no"
+                    src="https://www.openstreetmap.org/export/embed.html?bbox=11.605%2C48.077%2C11.615%2C48.083&layer=mapnik&marker=48.08%2C11.61"
+                    class="w-full"
+                    title="Karte: Fasanenpark Unterhaching">
+                </iframe>
+            </div>
+            <div class="mt-4 flex flex-wrap gap-4 justify-center">
+                <a href="https://www.openstreetmap.org/?mlat=48.08&mlon=11.61#map=17/48.08/11.61"
+                   target="_blank" rel="noopener"
+                   class="text-teal hover:text-teal-dark font-medium underline">
+                    Gr&ouml;&szlig;ere Karte anzeigen
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=48.08,11.61"
+                   target="_blank" rel="noopener"
+                   class="text-teal hover:text-teal-dark font-medium underline">
+                    In Google Maps &ouml;ffnen
+                </a>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="bg-teal-light">
+            <div class="max-w-3xl mx-auto px-6 py-12 md:py-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-teal mb-4">Auf dem Laufenden bleiben</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    Melde dich f&uuml;r unseren Newsletter an und erfahre als Erstes von kommenden Veranstaltungen.
+                </p>
+                <!-- MailerLite embed: replace this div with your MailerLite form embed code -->
+                <div id="newsletter" class="bg-white rounded-2xl p-6 shadow-sm max-w-md mx-auto">
+                    <p class="text-gray-500 italic">Newsletter-Anmeldung folgt in K&uuml;rze.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Flyer Download -->
+        <section class="max-w-3xl mx-auto px-6 py-12 md:py-16 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-teal mb-4">Flyer herunterladen</h2>
+            <p class="text-lg text-gray-700 mb-6">
+                Teile den Flyer mit Freunden und Nachbarn!
+            </p>
+            <a href="flyer.png" download
+               class="inline-block bg-teal hover:bg-teal-dark text-white font-semibold px-8 py-3 rounded-full transition-colors text-lg">
+                Flyer herunterladen
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-3xl mx-auto px-6 py-10">
+            <div class="flex flex-wrap gap-6 justify-center text-sm mb-8">
+                <a href="#impressum" class="hover:text-white underline">Impressum</a>
+                <a href="#datenschutz" class="hover:text-white underline">Datenschutz</a>
+            </div>
+
+            <!-- Impressum -->
+            <div id="impressum" class="mb-8">
+                <h3 class="text-lg font-bold text-white mb-2">Impressum</h3>
+                <p>Angaben gem&auml;&szlig; &sect; 5 TMG:</p>
+                <p class="mt-2">
+                    Caroline Helming<br>
+                    Albert-Schweitzer-Stra&szlig;e 32<br>
+                    82008 Unterhaching
+                </p>
+                <p class="mt-2">
+                    E-Mail:
+                    <a href="mailto:caroline.helming@gmail.com" class="text-teal hover:text-teal-dark underline">
+                        caroline.helming@gmail.com
+                    </a>
+                </p>
+            </div>
+
+            <!-- Datenschutz -->
+            <div id="datenschutz">
+                <h3 class="text-lg font-bold text-white mb-2">Datenschutzerkl&auml;rung</h3>
+
+                <h4 class="font-semibold text-white mt-4 mb-1">Verantwortliche Stelle</h4>
+                <p>Caroline Helming, Albert-Schweitzer-Stra&szlig;e 32, 82008 Unterhaching.</p>
+
+                <h4 class="font-semibold text-white mt-4 mb-1">Newsletter</h4>
+                <p>
+                    Wenn du dich f&uuml;r unseren Newsletter anmeldest, wird deine E-Mail-Adresse
+                    bei unserem Dienstleister MailerLite (MailerLite Limited, Ground Floor,
+                    71 Lower Baggot Street, Dublin 2, D02 P593, Irland) gespeichert und
+                    verarbeitet. Die Anmeldung erfolgt &uuml;ber ein Double-Opt-in-Verfahren.
+                    Die Verarbeitung erfolgt auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).
+                </p>
+                <p class="mt-2">
+                    Du kannst dich jederzeit &uuml;ber den Abmeldelink in jeder E-Mail oder per
+                    Nachricht an uns abmelden. Nach der Abmeldung wird deine E-Mail-Adresse gel&ouml;scht.
+                </p>
+                <p class="mt-2">
+                    Weitere Informationen findest du in der
+                    <a href="https://www.mailerlite.com/legal/privacy-policy" target="_blank" rel="noopener"
+                       class="text-teal hover:text-teal-dark underline">
+                        Datenschutzerkl&auml;rung von MailerLite
+                    </a>.
+                </p>
+
+                <h4 class="font-semibold text-white mt-4 mb-1">Hosting</h4>
+                <p>
+                    Diese Website wird &uuml;ber GitHub Pages (GitHub Inc., 88 Colin P Kelly Jr St,
+                    San Francisco, CA 94107, USA) gehostet. Beim Aufruf der Seite werden
+                    technisch notwendige Daten (z.&nbsp;B. IP-Adresse) von GitHub verarbeitet.
+                    Weitere Informationen:
+                    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+                       target="_blank" rel="noopener"
+                       class="text-teal hover:text-teal-dark underline">
+                        GitHub Privacy Statement
+                    </a>.
+                </p>
+
+                <h4 class="font-semibold text-white mt-4 mb-1">Deine Rechte</h4>
+                <p>
+                    Du hast das Recht auf Auskunft, Berichtigung, L&ouml;schung und Einschr&auml;nkung
+                    der Verarbeitung deiner Daten sowie das Recht auf Beschwerde bei einer
+                    Aufsichtsbeh&ouml;rde.
+                </p>
+            </div>
+
+            <p class="text-center text-gray-500 text-xs mt-10">
+                &copy; 2026 Leben im Fasanenpark
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
