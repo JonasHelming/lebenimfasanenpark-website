@@ -154,29 +154,43 @@
                     var msg = document.getElementById('newsletter-msg');
                     btn.disabled = true;
                     btn.textContent = 'Wird gesendet\u2026';
-                    var data = new FormData();
-                    data.append('fields[email]', form.email.value);
-                    data.append('ml-submit', '1');
-                    data.append('anticsrf', 'true');
-                    fetch('https://assets.mailerlite.com/jsonp/2474568/forms/191721626200441946/subscribe', {
-                        method: 'POST',
-                        body: data
-                    }).then(function(r) { return r.json(); }).then(function(res) {
+                    var cb = 'ml_cb_' + Date.now();
+                    var email = encodeURIComponent(form.email.value);
+                    var url = 'https://assets.mailerlite.com/jsonp/2474568/forms/191721626200441946/subscribe?fields%5Bemail%5D=' + email + '&ml-submit=1&anticsrf=true&ajax=1&callback=' + cb;
+                    var timeout = setTimeout(function() {
+                        btn.disabled = false;
+                        btn.textContent = 'Anmelden';
+                        msg.textContent = 'Fehler \u2013 bitte versuche es erneut.';
+                        msg.className = 'text-sm text-center text-coral';
+                        delete window[cb];
+                    }, 10000);
+                    window[cb] = function(res) {
+                        clearTimeout(timeout);
+                        delete window[cb];
+                        btn.disabled = false;
+                        btn.textContent = 'Anmelden';
                         if (res && res.success) {
                             msg.textContent = 'Danke! Bitte best\u00e4tige deine E-Mail.';
                             msg.className = 'text-sm text-center text-teal';
                             form.reset();
                         } else {
-                            msg.textContent = (res && res.errors && res.errors['fields[email]']) || 'Fehler \u2013 bitte versuche es erneut.';
+                            msg.textContent = 'Fehler \u2013 bitte versuche es erneut.';
                             msg.className = 'text-sm text-center text-coral';
                         }
-                    }).catch(function() {
-                        msg.textContent = 'Fehler \u2013 bitte versuche es erneut.';
-                        msg.className = 'text-sm text-center text-coral';
-                    }).finally(function() {
+                    };
+                    var s = document.createElement('script');
+                    s.src = url;
+                    document.body.appendChild(s);
+                    s.onload = function() { document.body.removeChild(s); };
+                    s.onerror = function() {
+                        clearTimeout(timeout);
+                        delete window[cb];
+                        document.body.removeChild(s);
                         btn.disabled = false;
                         btn.textContent = 'Anmelden';
-                    });
+                        msg.textContent = 'Fehler \u2013 bitte versuche es erneut.';
+                        msg.className = 'text-sm text-center text-coral';
+                    };
                 });
                 </script>
             </div>
