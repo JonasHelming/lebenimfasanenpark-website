@@ -142,14 +142,22 @@
                     var msg = document.getElementById('newsletter-msg');
                     btn.disabled = true;
                     btn.textContent = 'Wird gesendet\u2026';
+                    var data = new FormData();
+                    data.append('fields[email]', form.email.value);
+                    data.append('ml-submit', '1');
+                    data.append('anticsrf', 'true');
                     fetch('https://assets.mailerlite.com/jsonp/2474568/forms/191721626200441946/subscribe', {
                         method: 'POST',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({fields: {email: form.email.value}})
-                    }).then(function() {
-                        msg.textContent = 'Danke! Bitte best\u00e4tige deine E-Mail.';
-                        msg.className = 'text-sm text-center text-teal';
-                        form.reset();
+                        body: data
+                    }).then(function(r) { return r.json(); }).then(function(res) {
+                        if (res && res.success) {
+                            msg.textContent = 'Danke! Bitte best\u00e4tige deine E-Mail.';
+                            msg.className = 'text-sm text-center text-teal';
+                            form.reset();
+                        } else {
+                            msg.textContent = (res && res.errors && res.errors['fields[email]']) || 'Fehler \u2013 bitte versuche es erneut.';
+                            msg.className = 'text-sm text-center text-coral';
+                        }
                     }).catch(function() {
                         msg.textContent = 'Fehler \u2013 bitte versuche es erneut.';
                         msg.className = 'text-sm text-center text-coral';
