@@ -145,10 +145,43 @@
                 <p class="text-lg text-gray-700 mb-6">
                     Melde dich f&uuml;r unseren Newsletter an und erfahre als Erstes von kommenden Veranstaltungen.
                 </p>
-                <!-- MailerLite embed: replace this div with your MailerLite form embed code -->
                 <div id="newsletter" class="bg-white rounded-2xl p-6 shadow-sm max-w-md mx-auto">
-                    <p class="text-gray-500 italic">Newsletter-Anmeldung folgt in K&uuml;rze.</p>
+                    <form id="newsletter-form" class="space-y-4">
+                        <input type="email" name="email" required
+                               placeholder="Deine E-Mail-Adresse"
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal text-gray-800">
+                        <button type="submit"
+                                class="w-full bg-teal hover:bg-teal-dark text-white font-semibold py-3 rounded-lg transition-colors">
+                            Anmelden
+                        </button>
+                        <p id="newsletter-msg" class="text-sm text-center hidden"></p>
+                    </form>
                 </div>
+                <script>
+                document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var form = this;
+                    var btn = form.querySelector('button');
+                    var msg = document.getElementById('newsletter-msg');
+                    btn.disabled = true;
+                    btn.textContent = 'Wird gesendet\u2026';
+                    fetch('https://assets.mailerlite.com/jsonp/2474568/forms/141695180556498005/subscribe', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({fields: {email: form.email.value}})
+                    }).then(function() {
+                        msg.textContent = 'Danke! Bitte best\u00e4tige deine E-Mail.';
+                        msg.className = 'text-sm text-center text-teal';
+                        form.reset();
+                    }).catch(function() {
+                        msg.textContent = 'Fehler \u2013 bitte versuche es erneut.';
+                        msg.className = 'text-sm text-center text-coral';
+                    }).finally(function() {
+                        btn.disabled = false;
+                        btn.textContent = 'Anmelden';
+                    });
+                });
+                </script>
             </div>
         </section>
 
